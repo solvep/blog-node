@@ -196,7 +196,7 @@ exports.loginAdmin = (req, res) => {
 exports.register = (req, res) => {
   let { name, password, phone, email, introduce, type } = req.body;
   if (!email) {
-    responseClient(res, 400, 2, '用户邮箱不可为空');
+    responseClient(res, 400, 2, '用户邮箱不可为空2');
     return;
   }
   const reg = new RegExp(

@@ -22,7 +22,7 @@ exports.mongoose = mongoose
 
 // connect
 exports.connect = () => {
-    // console.log('CONFIG.MONGODB.uri :', CONFIG.MONGODB.uri)
+    console.log('CONFIG.MONGODB.uri :', CONFIG.MONGODB.uri)
 
 	// 连接数据库
 	mongoose.connect(CONFIG.MONGODB.uri, {
@@ -30,14 +30,13 @@ exports.connect = () => {
 		useNewUrlParser: true,
 		promiseLibrary: global.Promise
 	})
-
 	// 连接错误
 	mongoose.connection.on('error', error => {
 		consola.warn('数据库连接失败!', error)
 	})
 
 	// 连接成功
-	mongoose.connection.once('open', () => {
+	mongoose.connection.on('open', () => {
 		consola.ready('数据库连接成功!')
 	})
 
